@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Figmark">
+  <meta name="robots" content="index, follow">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-BNDkcCP4.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-BNDkcCP4.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon-BNDkcCP4.png" />
+  <title>Project Management System</title>
+
+
+  <meta name="keywords"
+    content="Figmark, React Admin Template, Dashboard Template, Admin Panel, ReactJS UI, Responsive Dashboard, Analytics Dashboard, React Web App, Project Management UI, React Components, React Bootstrap Template, Admin Interface, Web Application UI, ReactJS Dashboard" />
+
+  <meta name="description"
+    content="Figmark is a modern React Admin & Dashboard Template built for performance and scalability. Ideal for web applications, analytics panels, and admin interfaces with reusable components and responsive design." />
+
+
+  <meta property="og:title" content="Figmark – React Admin & Dashboard Template | DexignLab" />
+  <meta property="og:description"
+    content="Figmark is a responsive and customizable React admin dashboard template. Perfect for web apps, analytics systems, and admin panels." />
+  <meta property="og:image" content="https://figmark.dexignlab.com/react/social-image.png" />
+  <meta property="og:url" content="https://figmark.dexignlab.com/react" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Figmark – React Admin & Dashboard Template | DexignLab" />
+  <meta name="twitter:description"
+    content="Build professional dashboards with Figmark – a powerful and responsive React admin template designed for modern web applications." />
+  <link rel="stylesheet" crossorigin href="/assets/index-Cu5F7fJF.css">
+  <style>
+    /* ── Workspace Calendar Premium Styling ────────────────────── */
+    .react-calendar {
+      width: 100% !important;
+      border: none !important;
+      border-radius: 0 !important;
+      font-family: inherit !important;
+      background: transparent !important;
+    }
+    .react-calendar__navigation {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      border-radius: 12px 12px 0 0 !important;
+      padding: 10px 8px !important;
+      margin-bottom: 0 !important;
+      height: auto !important;
+    }
+    .react-calendar__navigation button {
+      color: #fff !important;
+      font-size: 14px !important;
+      font-weight: 700 !important;
+      background: rgba(255,255,255,0.15) !important;
+      border-radius: 8px !important;
+      min-width: 32px !important;
+      height: 32px !important;
+      border: none !important;
+      transition: background 0.2s !important;
+    }
+    .react-calendar__navigation button:hover {
+      background: rgba(255,255,255,0.3) !important;
+    }
+    .react-calendar__navigation__label {
+      font-size: 15px !important;
+      letter-spacing: 0.3px !important;
+    }
+    .react-calendar__month-view__weekdays {
+      background: #f8f9ff !important;
+      padding: 6px 0 !important;
+    }
+    .react-calendar__month-view__weekdays__weekday {
+      text-align: center !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      color: #9ca3af !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.5px !important;
+    }
+    .react-calendar__month-view__weekdays__weekday abbr {
+      text-decoration: none !important;
+    }
+    .react-calendar__month-view__days {
+      padding: 8px !important;
+      background: #fff !important;
+    }
+    .react-calendar__tile {
+      cursor: pointer !important;
+      transition: transform 0.15s ease, background-color 0.15s ease !important;
+      border-radius: 10px !important;
+      font-size: 12.5px !important;
+      font-weight: 500 !important;
+      color: #374151 !important;
+      padding: 8px 4px !important;
+      transition: all 0.15s ease !important;
+      border: 1px solid transparent !important;
+      background: transparent !important;
+      position: relative !important;
+    }
+    .react-calendar__tile:hover {
+      transform: translateY(-1px) scale(1.04) !important;
+      z-index: 2 !important;
+      background: #f0f4ff !important;
+      border-color: #c7d2fe !important;
+      color: #4f46e5 !important;
+    }
+    .react-calendar__tile--now {
+      background: linear-gradient(135deg, #667eea, #764ba2) !important;
+      color: #fff !important;
+      font-weight: 800 !important;
+      border-color: transparent !important;
+      box-shadow: 0 2px 8px rgba(102,126,234,0.4) !important;
+    }
+    .react-calendar__tile--now:hover {
+      background: linear-gradient(135deg, #5a6fd6, #6a4299) !important;
+      color: #fff !important;
+    }
+    .react-calendar__tile--active {
+      background: #ede9fe !important;
+      color: #5b21b6 !important;
+    }
+    .react-calendar__month-view__days__day--weekend {
+      color: #9ca3af !important;
+    }
+    .react-calendar__month-view__days__day--neighboringMonth {
+      color: #d1d5db !important;
+    }
+    /* Dot indicators */
+    .react-calendar__tile abbr {
+      display: block !important;
+    }
+    /* Deadline dot (red) */
+    .react-calendar__tile .deadline-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: #ef4444;
+      display: inline-block;
+      margin: 1px 1px 0;
+    }
+    /* Worklog dot (green) */
+    .react-calendar__tile .worklog-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: #22c55e;
+      display: inline-block;
+      margin: 1px 1px 0;
+    }
+    .react-calendar__tile .tile-dots {
+      display: flex;
+      justify-content: center;
+      gap: 2px;
+      margin-top: 2px;
+    }
+    /* Card containing the calendar */
+    .workspace-calendar-card .card-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      border-radius: 12px 12px 0 0 !important;
+      padding: 14px 18px !important;
+    }
+    .workspace-calendar-card .card-header .card-title {
+      color: #fff !important;
+      margin: 0 !important;
+      font-size: 15px !important;
+      font-weight: 700 !important;
+    }
+    .workspace-calendar-card {
+      border-radius: 12px !important;
+      overflow: hidden !important;
+      box-shadow: 0 4px 20px rgba(102,126,234,0.15) !important;
+    }
+
+    /* ── Filter Projects High Contrast & Two-Column Grid Styling ── */
+    .project-filter-card {
+      border: 1px solid #d1d5db !important;
+      border-radius: 12px !important;
+      background: #ffffff !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+    }
+    .project-filter-card .form-label {
+      font-weight: 700 !important;
+      color: #0f172a !important;
+      font-size: 13px !important;
+      margin-bottom: 6px !important;
+      display: block !important;
+    }
+    .project-filter-card .form-control,
+    .project-filter-card select.form-control,
+    .project-filter-card input.form-control {
+      border: 1.5px solid #94a3b8 !important; /* Higher contrast border (WCAG) */
+      border-radius: 8px !important;
+      color: #0f172a !important; /* High contrast text */
+      font-size: 13.5px !important;
+      font-weight: 500 !important;
+      background-color: #ffffff !important;
+      padding: 8px 12px !important;
+      height: 42px !important;
+      transition: all 0.2s ease-in-out !important;
+    }
+    .project-filter-card .form-control:focus,
+    .project-filter-card select.form-control:focus {
+      border-color: #2563eb !important;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2) !important;
+      outline: none !important;
+    }
+    .project-filter-card .form-control::placeholder,
+    .project-filter-card input::placeholder {
+      color: #475569 !important; /* High contrast placeholder (WCAG compliant) */
+      opacity: 1 !important;
+      font-weight: 400 !important;
+    }
+    .date-range-container {
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      width: 100% !important;
+    }
+    .date-range-container .filter-input {
+      min-width: 0 !important;
+      flex: 1 1 0% !important;
+      width: 100% !important;
+    }
+    .project-filter-card .date-separator {
+      color: #334155 !important;
+      font-weight: 700 !important;
+      font-size: 12px !important;
+      padding: 6px 12px !important;
+      background: #f1f5f9 !important;
+      border: 1.5px solid #cbd5e1 !important;
+      border-radius: 6px !important;
+      flex-shrink: 0 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.5px !important;
+    }
+    .project-filter-card .btn-reset-filters {
+      background-color: #f97316 !important;
+      border: 1.5px solid #ea580c !important;
+      color: #ffffff !important;
+      font-weight: 700 !important;
+      font-size: 13.5px !important;
+      height: 42px !important;
+      border-radius: 8px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: all 0.2s ease !important;
+      cursor: pointer !important;
+      box-shadow: 0 2px 6px rgba(249, 115, 22, 0.2) !important;
+    }
+    .project-filter-card .btn-reset-filters:hover {
+      background-color: #ea580c !important;
+      border-color: #c2410c !important;
+      box-shadow: 0 4px 12px rgba(234, 88, 12, 0.35) !important;
+      transform: translateY(-1px) !important;
+    }
+
+    /* ── Mobile & Small Device Responsive Overrides ── */
+    @media (max-width: 576px) {
+      .project-filter-card .card-body {
+        padding: 12px 10px !important;
+      }
+      .date-range-container {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 6px !important;
+      }
+      .date-range-container .filter-input {
+        width: 100% !important;
+      }
+      .date-range-container .date-separator {
+        align-self: center !important;
+        padding: 2px 10px !important;
+        font-size: 10.5px !important;
+        line-height: 1.2 !important;
+        border-radius: 4px !important;
+      }
+      .project-filter-card .form-control,
+      .project-filter-card select.form-control,
+      .project-filter-card input.form-control {
+        height: 38px !important;
+        font-size: 12.5px !important;
+        padding: 6px 10px !important;
+      }
+      .project-filter-card .form-label {
+        font-size: 12px !important;
+        margin-bottom: 4px !important;
+      }
+      .project-filter-card .btn-reset-filters {
+        height: 38px !important;
+        font-size: 13px !important;
+        margin-top: 4px !important;
+      }
+    }
+
+    /* ── Progressive Mobile App Bottom Navigation Bar ── */
+    .mobile-app-bottom-nav {
+      display: none !important;
+      position: fixed !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 1045 !important;
+      background: rgba(255, 255, 255, 0.94) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06) !important;
+      padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+      height: calc(62px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+
+    [data-theme-version="dark"] .mobile-app-bottom-nav {
+      background: rgba(24, 24, 38, 0.94) !important;
+      border-top-color: rgba(255, 255, 255, 0.08) !important;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    .mobile-nav-container {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-around !important;
+      height: 62px !important;
+      max-width: 600px !important;
+      margin: 0 auto !important;
+      padding: 0 4px !important;
+    }
+
+    .mobile-nav-tab {
+      background: transparent !important;
+      border: none !important;
+      outline: none !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex: 1 !important;
+      height: 100% !important;
+      color: #64748b !important;
+      padding: 4px 0 !important;
+      position: relative !important;
+      text-decoration: none !important;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      -webkit-tap-highlight-color: transparent !important;
+      cursor: pointer !important;
+    }
+    .mobile-nav-tab:hover,
+    .mobile-nav-tab:focus {
+      text-decoration: none !important;
+      color: #0d99ff !important;
+    }
+
+    [data-theme-version="dark"] .mobile-nav-tab {
+      color: #94a3b8 !important;
+    }
+
+    .mobile-nav-tab:active {
+      transform: scale(0.92) !important;
+    }
+
+    .mobile-nav-icon-wrapper {
+      position: relative !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 32px !important;
+      height: 26px !important;
+      font-size: 18px !important;
+      transition: transform 0.2s ease !important;
+    }
+
+    .mobile-nav-tab.active .mobile-nav-icon-wrapper {
+      transform: translateY(-2px) !important;
+    }
+
+    .mobile-nav-tab.active {
+      color: #0d99ff !important;
+      font-weight: 700 !important;
+    }
+
+    [data-theme-version="dark"] .mobile-nav-tab.active {
+      color: #38bdf8 !important;
+    }
+
+    .mobile-nav-label {
+      font-size: 10.5px !important;
+      font-weight: 500 !important;
+      margin-top: 2px !important;
+      letter-spacing: -0.2px !important;
+      transition: all 0.2s ease !important;
+    }
+
+    .mobile-nav-tab.active .mobile-nav-label {
+      font-weight: 700 !important;
+      color: #0d99ff !important;
+    }
+
+    [data-theme-version="dark"] .mobile-nav-tab.active .mobile-nav-label {
+      color: #38bdf8 !important;
+    }
+
+    .mobile-nav-active-pill {
+      position: absolute !important;
+      bottom: -4px !important;
+      width: 14px !important;
+      height: 3px !important;
+      background: #0d99ff !important;
+      border-radius: 4px !important;
+      box-shadow: 0 1px 4px rgba(13, 153, 255, 0.4) !important;
+    }
+
+    [data-theme-version="dark"] .mobile-nav-active-pill {
+      background: #38bdf8 !important;
+      box-shadow: 0 1px 4px rgba(56, 189, 248, 0.5) !important;
+    }
+
+    @media (max-width: 768px) {
+      /* Content Body & Container Fluid */
+      .content-body {
+        margin-left: 0 !important;
+        padding-top: 58px !important;
+        padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)) !important;
+        width: 100% !important;
+        overflow-x: hidden !important;
+      }
+      .content-body .container-fluid,
+      .content-body .container-sm,
+      .content-body .container-md {
+        padding: 10px 8px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      /* Fixed Top App Bar & Logo on Mobile */
+      .nav-header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 52px !important;
+        height: 54px !important;
+        z-index: 1000 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: transparent !important;
+        padding: 0 !important;
+      }
+      .nav-header .brand-logo {
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
+      .nav-header .logo-abbr {
+        max-width: 34px !important;
+        height: auto !important;
+      }
+      .nav-header .brand-title {
+        display: none !important;
+      }
+      .nav-control {
+        display: none !important;
+      }
+
+      .header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 54px !important;
+        z-index: 990 !important;
+        padding: 0 !important;
+        background: rgba(255, 255, 255, 0.96) !important;
+        backdrop-filter: blur(12px) !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+      }
+      [data-theme-version="dark"] .header {
+        background: rgba(24, 24, 38, 0.96) !important;
+        border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+      }
+
+      .header .header-content {
+        position: relative !important;
+        height: 54px !important;
+        padding-left: 54px !important;
+        padding-right: 8px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        width: 100% !important;
+      }
+      .header .navbar {
+        padding: 0 !important;
+        width: 100% !important;
+      }
+      .header .navbar-collapse {
+        display: flex !important;
+        justify-content: flex-end !important;
+        width: 100% !important;
+      }
+      .header-left {
+        display: none !important;
+      }
+      .header-right {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        margin-left: auto !important;
+        gap: 6px !important;
+        padding-right: 2px !important;
+      }
+      .header-right .nav-item {
+        padding: 0 !important;
+      }
+      .header-profile {
+        display: flex !important;
+        align-items: center !important;
+      }
+      .header-profile img,
+      .header-profile .avatar {
+        width: 32px !important;
+        height: 32px !important;
+        border-radius: 50% !important;
+      }
+      .header-profile .header-info,
+      .header-profile .header-info2 {
+        display: none !important;
+      }
+
+      /* Page Titles & Subtitles */
+      .page-titles {
+        margin-bottom: 10px !important;
+        padding: 8px 10px !important;
+        border-radius: 8px !important;
+      }
+      .page-titles h4,
+      .page-titles .text-primary {
+        font-size: 15px !important;
+        line-height: 1.3 !important;
+        margin-bottom: 3px !important;
+      }
+      .page-titles p,
+      .page-titles small {
+        font-size: 11px !important;
+        line-height: 1.35 !important;
+      }
+      .page-titles .btn {
+        font-size: 11.5px !important;
+        padding: 5px 10px !important;
+        margin-top: 6px !important;
+        width: 100% !important;
+      }
+
+      /* Cards & Card Content */
+      .card {
+        margin-bottom: 10px !important;
+        border-radius: 10px !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+        overflow: hidden !important;
+      }
+      .card-header {
+        padding: 10px 10px 6px !important;
+      }
+      .card-header .card-title,
+      .card-header h4,
+      .card-header h5 {
+        font-size: 14px !important;
+      }
+      .card-body {
+        padding: 8px !important;
+      }
+      .card-footer {
+        padding: 6px 8px !important;
+      }
+
+      /* Tables with Smooth Touch Horizontal Scroll */
+      .table-responsive {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        margin-bottom: 0 !important;
+        border-radius: 8px !important;
+        border: 1px solid #e2e8f0 !important;
+      }
+      .table-responsive::-webkit-scrollbar {
+        height: 4px !important;
+      }
+      .table-responsive::-webkit-scrollbar-thumb {
+        background: #cbd5e1 !important;
+        border-radius: 4px !important;
+      }
+      .table {
+        width: 100% !important;
+        min-width: 540px !important;
+        margin-bottom: 0 !important;
+        font-size: 11.5px !important;
+      }
+      .table th,
+      .table td {
+        padding: 6px 7px !important;
+        white-space: nowrap !important;
+        vertical-align: middle !important;
+      }
+      .table thead th {
+        font-size: 10.5px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.3px !important;
+      }
+
+      /* Modals */
+      .modal-dialog {
+        margin: 8px !important;
+        max-width: calc(100% - 16px) !important;
+      }
+      .modal-content {
+        border-radius: 12px !important;
+      }
+      .modal-header {
+        padding: 10px 12px !important;
+      }
+      .modal-title {
+        font-size: 14.5px !important;
+      }
+      .modal-body {
+        padding: 12px 10px !important;
+        max-height: 75vh !important;
+      }
+      .modal-footer {
+        padding: 8px 10px !important;
+      }
+
+      /* Nav Pills on Mobile */
+      .nav-pills.custom-pills {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding-bottom: 4px !important;
+        gap: 6px !important;
+      }
+      .nav-pills.custom-pills .nav-item {
+        flex-shrink: 0 !important;
+      }
+      .nav-pills.custom-pills .nav-link {
+        font-size: 11.5px !important;
+        padding: 6px 12px !important;
+        white-space: nowrap !important;
+      }
+
+      /* Notification & Profile Dropdowns on Mobile */
+      .notification_dropdown .dropdown-menu {
+        position: fixed !important;
+        top: 58px !important;
+        left: 8px !important;
+        right: 8px !important;
+        width: auto !important;
+        min-width: 0 !important;
+        max-width: calc(100vw - 16px) !important;
+        margin: 0 !important;
+        border-radius: 12px !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+        z-index: 1060 !important;
+        transform: none !important;
+      }
+      .notification_dropdown .dropdown-menu .widget-media {
+        max-height: 55vh !important;
+        height: auto !important;
+      }
+      .notification_dropdown .dropdown-menu h5 {
+        font-size: 14px !important;
+      }
+      .notification_dropdown .dropdown-menu .badge {
+        font-size: 11px !important;
+        padding: 3px 6px !important;
+      }
+      .notification-item {
+        padding: 8px !important;
+        margin-bottom: 6px !important;
+      }
+      .notification-item h6,
+      .notification-item p,
+      .notification-item .text-dark {
+        font-size: 11.5px !important;
+        line-height: 1.35 !important;
+      }
+
+      .header-profile .dropdown-menu,
+      .header-profile .profile-detail {
+        position: fixed !important;
+        top: 58px !important;
+        left: auto !important;
+        right: 8px !important;
+        width: min(280px, calc(100vw - 16px)) !important;
+        max-width: calc(100vw - 16px) !important;
+        border-radius: 12px !important;
+        z-index: 1060 !important;
+        transform: none !important;
+      }
+      
+      /* FullCalendar Mobile & Touch Responsiveness */
+      .app-fullcalendar {
+        width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+      }
+      .fc .fc-toolbar.fc-header-toolbar {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 4px !important;
+        margin-bottom: 6px !important;
+      }
+      .fc .fc-toolbar-chunk {
+        display: flex !important;
+        align-items: center !important;
+      }
+      .fc .fc-toolbar-title {
+        font-size: 13.5px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+        margin: 2px 0 !important;
+      }
+      .fc .fc-button {
+        padding: 3px 6px !important;
+        font-size: 10.5px !important;
+        height: 26px !important;
+        line-height: 1 !important;
+      }
+      .fc-daygrid-day-number {
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        padding: 2px 4px !important;
+      }
+      .fc-col-header-cell-cushion {
+        font-size: 11px !important;
+        padding: 2px 0 !important;
+        font-weight: 600 !important;
+      }
+            .fc-daygrid-event,
+      .fc-event,
+      .fc .fc-list-event {
+        font-size: 8.5px !important;
+        padding: 1px 2px !important;
+        margin: 1px 0 !important;
+        line-height: 1.15 !important;
+        border-radius: 2px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+      }
+      .fc-daygrid-event-dot {
+        border-width: 3px !important;
+        margin: 0 2px !important;
+      }
+      .fc-daygrid-day-frame {
+        min-height: 38px !important;
+      }
+      .fc-theme-standard .fc-scrollgrid {
+        border-radius: 8px !important;
+        border: 1px solid #e2e8f0 !important;
+        min-width: 100% !important;
+      }
+      .fc .fc-scrollgrid-sync-table,
+      .fc .fc-col-header {
+        width: 100% !important;
+      }
+      
+      /* Touch Buttons & Badges */
+      .btn-xs {
+        padding: 3px 6px !important;
+        font-size: 10.5px !important;
+      }
+      .btn-sm {
+        padding: 5px 8px !important;
+        font-size: 11.5px !important;
+      }
+      .badge {
+        font-size: 10px !important;
+        padding: 3px 5px !important;
+      }
+
+      /* Mobile App Bottom Navigation Bar only on mobile/phone screens */
+      .mobile-app-bottom-nav {
+        display: block !important;
+      }
+
+      /* Prevent bottom nav from covering content */
+      #main-wrapper .content-body {
+        padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)) !important;
+      }
+      
+      /* Native App touch smoothness & momentum */
+      body {
+        -webkit-touch-callout: none;
+        -webkit-font-smoothing: antialiased;
+        overscroll-behavior-y: contain;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .mobile-app-bottom-nav {
+        display: none !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
+      #main-wrapper .content-body {
+        padding-bottom: 0px !important;
+      }
+    }
+  </style>
+  <script type="module" crossorigin src="/assets/index-DJGNZEug.js"></script>
+</head>
+
+<body data-typography="poppins" data-theme-version="light" data-layout="vertical" data-nav-headerbg="color_1"
+  data-headerbg="color_1" data-sidebar-style="full" data-sidebarbg="color_1" data-sidebar-position="fixed"
+  data-header-position="fixed" data-container="wide" direction="ltr" data-primary="color_1">
+  <div id="root"></div>
+</body>
+
+</html>
